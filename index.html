@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Klinkenberg Plot</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  
+    // 2. Load the chart packages
+    google.charts.load('current', {'packages':['corechart']});
+    
+    // 3. Set the function to run when the library is loaded
+    google.charts.setOnLoadCallback(drawChart);
+
+    // 4. This function draws the chart
+    function drawChart() {
+    
+      // Data for the chart - you can replace this with real data later
+      var data = google.visualization.arrayToDataTable([
+        ['Reciprocal Mean Pressure (1/P_mean)', 'Gas Permeability (K)'],
+        [ 0.95, 115 ],
+        [ 0.71, 105 ],
+        [ 0.55, 98 ],
+        [ 0.44, 93 ],
+        [ 0.35, 89 ],
+        [ 0.29, 86 ],
+        [ 0.24, 84 ]
+      ]);
+
+      // Options to style the chart like your PSU manual
+      var options = {
+        title: 'Klinkenberg Plot: Gas Permeability vs. Reciprocal Mean Pressure',
+        backgroundColor: '#f2f2f4',
+        colors: ['#1E407C'],
+        titleTextStyle: { color: '#314D64', fontSize: 16, bold: true },
+        hAxis: {
+          title: 'Reciprocal Mean Pressure (1/P_mean), atma⁻¹',
+          titleTextStyle: { color: '#314D64', italic: false, bold: true }
+        },
+        vAxis: {
+          title: 'Gas Permeability (K), Darcy',
+          titleTextStyle: { color: '#314D64', italic: false, bold: true }
+        },
+        legend: { position: 'none' }
+      };
+
+      // Create and draw the chart inside the 'chart_div'
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body style="margin:0; padding:0; background-color:#f2f2f4;">
+  <div id="chart_div" style="width: 100vw; height: 100vh;"></div>
+</body>
+</html>
