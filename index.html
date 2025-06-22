@@ -14,7 +14,7 @@
     // 4. This function draws the chart
     function drawChart() {
     
-      // Data for the chart - you can replace this with real data later
+      // Data for the chart
       var data = google.visualization.arrayToDataTable([
         ['Reciprocal Mean Pressure (1/P_mean)', 'Gas Permeability (K)'],
         [ 0.95, 115 ],
@@ -26,12 +26,21 @@
         [ 0.24, 84 ]
       ]);
 
-      // Options to style the chart like your PSU manual
+      // Options to style the chart
       var options = {
         title: 'Klinkenberg Plot: Gas Permeability vs. Reciprocal Mean Pressure',
         backgroundColor: '#f2f2f4',
         colors: ['#1E407C'],
         titleTextStyle: { color: '#314D64', fontSize: 16, bold: true },
+        
+        // --- ANIMATION OPTIONS START HERE ---
+        animation: {
+          startup: true,      // This tells the chart to animate on load
+          duration: 1500,     // The animation will take 1.5 seconds
+          easing: 'inAndOut', // A smooth acceleration and deceleration
+        },
+        // --- ANIMATION OPTIONS END HERE ---
+        
         hAxis: {
           title: 'Reciprocal Mean Pressure (1/P_mean), atma⁻¹',
           titleTextStyle: { color: '#314D64', italic: false, bold: true }
